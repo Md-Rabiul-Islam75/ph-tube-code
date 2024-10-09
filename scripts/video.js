@@ -26,17 +26,22 @@ const displayVideos = (videos) => {
         card.classList = "card card-compact"
         
         card.innerHTML = `
-        <figure>
+        <figure class="h-[200px]">
     <img
-      src=${video.thumbnail}
+      src=${video.thumbnail} class="h-full w-full object-cover"
       alt="Shoes" />
   </figure>
-  <div class="card-body">
-    <h2 class="card-title">Shoes!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div class="card-actions justify-end">
-      <button class="btn btn-primary">Buy Now</button>
+  <div class="px-0 py-2 flex gap-2">
+    <div>
+      <img class="w-10 h-10 rounded-full" src=${video.authors[0].profile_picture}/>
     </div>
+    <div>
+    <h2 class="font-bold">${video.title}</h2>
+    <div class="flex items-center gap-2">
+      <p class="text-gray-400">${video.authors[0].profile_name}</p>
+      <img class="w-5" src="https://img.icons8.com/?size=48&id=D9RtvkuOe31p&format=png"/>
+    </div>
+    <p> </p>
   </div>
         
         `;
@@ -67,3 +72,25 @@ const displayCategories = (categories) => {
 
 loadCategories();
 loadVideos();
+
+
+/*
+{
+    "category_id": "1003",
+    "video_id": "aaaj",
+    "thumbnail": "https://i.ibb.co/xgWL3vQ/kid-gorgeous.jpg",
+    "title": "Kid Gorgeous",
+    "authors": [
+        {
+            "profile_picture": "https://i.ibb.co/xsfkwN2/john.jpg",
+            "profile_name": "John Mulaney",
+            "verified": true
+        }
+    ],
+    "others": {
+        "views": "241K",
+        "posted_date": ""
+    },
+    "description": "John Mulaney's 'Kid Gorgeous' has captured the hearts of many with 241K views. As a verified comedian, John delivers a masterclass in stand-up with clever anecdotes, quick wit, and relatable humor. This performance is a laugh-filled adventure through his unique take on life, politics, and pop culture."
+}
+*/
